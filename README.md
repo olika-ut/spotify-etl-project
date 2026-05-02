@@ -15,7 +15,7 @@ How do genre and audio characteristics relate to Spotify track popularity?
 The dataset used in this project is the Spotify Tracks Dataset from Kaggle.
 
 - Dataset name: Spotify Tracks Dataset
-- Source: Kaggle
+- Source: Kaggle (`https://www.kaggle.com/datasets/maharshipandya/-spotify-tracks-dataset`)
 - Original file: dataset.csv
 - Format: CSV
 - Rows in raw dataset: 114,000
@@ -32,7 +32,7 @@ spotify-etl-project/
 │
 ├── data/
 │   ├── raw/
-│   │   └── dataset.csv
+│   │   └── dataset.csv # not included in repository; download from Kaggle
 │   ├── processed/
 │   │   ├── spotify_tracks_cleaned.csv
 │   │   └── spotify_genre_summary.csv
@@ -87,17 +87,16 @@ These packages are used for reading data, cleaning data, working with SQLite dat
 
 ### Dataset Setup
 
-Download the Spotify Tracks Dataset from Kaggle and place the raw CSV file in the following folder:
+The raw dataset file `data/raw/dataset.csv` is not included in this GitHub repository because it is too large to upload through GitHub.
+
+To run the pipeline, download the Spotify Tracks Dataset from Kaggle:
+
+`https://www.kaggle.com/datasets/maharshipandya/-spotify-tracks-dataset`
+
+After downloading, place the file in the following folder:
 
 ```text
 data/raw/
-```
-
-The file should be named:
-
-```text
-dataset.csv
-```
 
 The expected file path is:
 
