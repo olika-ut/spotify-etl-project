@@ -16,7 +16,7 @@ The dataset used in this project is the Spotify Tracks Dataset from Kaggle.
 
 - Dataset name: Spotify Tracks Dataset
 - Source: Kaggle
-- Original file: dataset.csv
+- Original file: dataset.csv 
 - Format: CSV
 - Rows in raw dataset: 114,000
 - Columns in raw dataset: 21
@@ -32,7 +32,7 @@ spotify-etl-project/
 │
 ├── data/
 │   ├── raw/
-│   │   └── dataset.csv
+│   │   └── dataset.csv # not included in repository because of file size limits; download separately from Kaggle
 │   ├── processed/
 │   │   ├── spotify_tracks_cleaned.csv
 │   │   └── spotify_genre_summary.csv
@@ -87,7 +87,7 @@ These packages are used for reading data, cleaning data, working with SQLite dat
 
 ### Dataset Setup
 
-Download the Spotify Tracks Dataset from Kaggle and place the raw CSV file in the following folder:
+Download the Spotify Tracks Dataset from Kaggle (https://www.kaggle.com/datasets/maharshipandya/-spotify-tracks-dataset) and place the raw CSV file in the following folder:
 
 ```text
 data/raw/
