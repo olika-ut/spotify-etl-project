@@ -204,6 +204,8 @@ feature_summary <- feature_long %>%
     .groups = "drop"
   )
 
+write_csv(feature_summary, "data/processed/feature_summary.csv") # For Tableau
+
 # Create faceted green bar chart
 feature_popularity_plot <- ggplot(
   feature_summary,
