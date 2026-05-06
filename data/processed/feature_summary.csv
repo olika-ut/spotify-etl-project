@@ -1,0 +1,13 @@
+audio_feature,feature_level,avg_popularity
+Acousticness,Low,31.96
+Acousticness,Medium,35.66
+Acousticness,High,31.98
+Danceability,Low,31.44
+Danceability,Medium,34.41
+Danceability,High,33.74
+Energy,Low,32.42
+Energy,Medium,35.17
+Energy,High,32.01
+Valence,Low,32.98
+Valence,Medium,34.36
+Valence,High,32.25
