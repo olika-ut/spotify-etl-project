@@ -385,6 +385,8 @@ correlation_long <- as.data.frame(as.table(correlation_matrix))
 # Rename columns
 colnames(correlation_long) <- c("Feature1", "Feature2", "Correlation")
 
+write_csv(correlation_long, "data/processed/correlation_long.csv") # For Tableau
+
 # Create heatmap
 correlation_heatmap <- ggplot(
   correlation_long,
