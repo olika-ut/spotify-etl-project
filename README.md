@@ -32,10 +32,13 @@ spotify-etl-project/
 │
 ├── data/
 │   ├── raw/
-│   │   └── dataset.csv # not included in repository because of file size limits; download separately from Kaggle
+│   │   └── dataset.csv  # not included in repository because of file size limits; download separately from Kaggle
 │   ├── processed/
-│   │   ├── spotify_tracks_cleaned.csv
-│   │   └── spotify_genre_summary.csv
+│   │   ├── correlation_long.csv
+│   │   ├── feature_summary.csv
+│   │   ├── popularity_distribution.csv
+│   │   ├── spotify_genre_summary.csv
+│   │   └── spotify_tracks_cleaned.csv
 │   └── database/
 │       └── spotify_tracks.db
 │
@@ -46,17 +49,24 @@ spotify-etl-project/
 │   └── 04_visualization.R
 │
 ├── visualizations/
-│   ├── top_15_genres_by_popularity_green.png
-│   ├── energy_valence_popularity_by_genre_green.png
 │   ├── average_popularity_by_audio_feature_level_green.png
+│   ├── correlation_heatmap_spotify_features.png
+│   ├── energy_valence_popularity_by_genre_green.png
 │   ├── popularity_category_distribution_top_15_genres.png
-│   └── correlation_heatmap_spotify_features.png
+│   ├── popularity_distribution_boxplot_top_15_genres.png
+│   └── top_15_genres_by_popularity_green.png
 │
-├── report/
-│   └── final_report.md
+├── tableau/
+│   ├── README_Tableau.md
+│   ├── spotify_tableau_dashboard.twbx
+│   └── screenshots/
+│
+├── Report/
+│   ├── Data Source Exploration.md
+│   └── Report.md
 │
 ├── README.md
-├── requirements.txt
+├── spotify-etl-project.Rproj
 └── .gitignore
 ```
 
@@ -127,11 +137,14 @@ source("scripts/02_transform.R")
 
 This script cleans the dataset by removing unnecessary columns, missing values, and duplicate tracks. It also creates new variables such as `duration_min` and `popularity_category`.
 
-After this step, two processed CSV files are created:
+After this step, the cleaned track data, genre summary data, and additional summary files for visualizations are created:
 
 ```text
 data/processed/spotify_tracks_cleaned.csv
 data/processed/spotify_genre_summary.csv
+data/processed/feature_summary.csv
+data/processed/popularity_distribution.csv
+data/processed/correlation_long.csv
 ```
 
 #### Step 3: Load the data into SQLite
@@ -176,11 +189,15 @@ After running the full pipeline, the project should produce:
 ```text
 data/processed/spotify_tracks_cleaned.csv
 data/processed/spotify_genre_summary.csv
+data/processed/feature_summary.csv
+data/processed/popularity_distribution.csv
+data/processed/correlation_long.csv
 data/database/spotify_tracks.db
 visualizations/top_15_genres_by_popularity_green.png
 visualizations/energy_valence_popularity_by_genre_green.png
 visualizations/average_popularity_by_audio_feature_level_green.png
 visualizations/popularity_category_distribution_top_15_genres.png
+visualizations/popularity_distribution_boxplot_top_15_genres.png
 visualizations/correlation_heatmap_spotify_features.png
 ```
 
@@ -226,11 +243,14 @@ The transformation steps include:
 - creating a `popularity_category` variable,
 - creating a genre-level summary table.
 
-The transformation process creates two cleaned output files:
+The transformation process creates cleaned track-level data, genre-level summary data, and additional summary files used for the visualizations:
 
 ```text
 data/processed/spotify_tracks_cleaned.csv
 data/processed/spotify_genre_summary.csv
+data/processed/feature_summary.csv
+data/processed/popularity_distribution.csv
+data/processed/correlation_long.csv
 ```
 
 ### 3. Load
@@ -285,6 +305,10 @@ The main visualizations created in this project are:
 
 5. **Correlation Heatmap of Spotify Audio Features**  
    This heatmap shows the strength and direction of relationships between popularity and numerical audio features.
+   
+7. **Popularity Distribution Boxplot for Top 15 Genres**  
+   This boxplot shows how popularity scores are distributed within the top genres. It helps compare the spread of popularity values, not only the average score.
+
 
 Together, these visualizations show that Spotify popularity in this dataset is related to both genre and audio characteristics, but no single audio feature fully explains popularity.
 
@@ -345,6 +369,21 @@ visualizations/energy_valence_popularity_by_genre_green.png
 visualizations/average_popularity_by_audio_feature_level_green.png
 visualizations/popularity_category_distribution_top_15_genres.png
 visualizations/correlation_heatmap_spotify_features.png
+visualizations/popularity_distribution_boxplot_top_15_genres.png
+```
+## Tableau Dashboard and Documentation
+
+In addition to the R ggplot2 visualizations, a Tableau dashboard was also created for this project. Tableau was used to try an interactive visualization tool and to experiment with dashboard layout, chart design, labels, colors, and user interaction.
+
+All Tableau-related files are saved in the `tableau/` folder. This folder includes the Tableau documentation, the packaged Tableau workbook, and screenshots of the Tableau dashboard.
+
+The Tableau folder has the following structure:
+
+```text
+tableau/
+├── README_Tableau.md
+├── spotify_tableau_dashboard.twbx
+└── screenshots/
 ```
 
 ## Limitations
