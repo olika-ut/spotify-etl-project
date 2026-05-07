@@ -431,3 +431,84 @@ ggsave(
 )
 
 print("Fifth visualization saved successfully!")
+
+# ------------------------------------------------------------
+# Sixth visualization:
+# Popularity Distribution by Top 15 Genres
+# ------------------------------------------------------------
+popularity_boxplot_data <- spotify_clean %>%
+
+  filter(track_genre %in% top_15_genre_names) %>%
+
+  mutate(track_genre = factor(track_genre, levels = genre_order))
+  popularity_boxplot_data <- spotify_clean %>%
+
+  filter(track_genre %in% top_15_genre_names) %>%
+
+  mutate(track_genre = factor(track_genre, levels = genre_order))
+
+popularity_boxplot <- ggplot(
+
+  popularity_boxplot_data,
+
+  aes(x = track_genre, y = popularity, fill = track_genre)
+
+) +
+
+  geom_boxplot(alpha = 0.8, outlier.alpha = 0.4) +
+
+  coord_flip() +
+
+  scale_fill_manual(
+
+    values = rep(spotify_medium_green, length(top_15_genre_names))
+
+  ) +
+
+  labs(
+
+    title = "Popularity Distribution in Top 15 Spotify Genres",
+
+    subtitle = "Boxplots show median, spread, and outliers of track popularity by genre",
+
+    x = "Genre",
+
+    y = "Popularity Score",
+
+    caption = "Source: Kaggle Spotify Tracks Dataset | Processed in R and loaded into SQLite"
+
+  ) +
+
+  theme_minimal(base_size = 14) +
+
+  theme(
+
+    legend.position = "none",
+
+    plot.title = element_text(face = "bold", size = 18),
+
+    plot.subtitle = element_text(size = 12),
+
+    axis.title = element_text(face = "bold"),
+
+    panel.grid.minor = element_blank()
+
+  )
+
+print(popularity_boxplot)
+
+ggsave(
+
+  filename = "visualizations/popularity_distribution_boxplot_top_15_genres.png",
+
+  plot = popularity_boxplot,
+
+  width = 11,
+
+  height = 7,
+
+  dpi = 300
+
+)
+
+print("Sixth visualization saved successfully!")
