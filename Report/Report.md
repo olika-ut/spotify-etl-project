@@ -1,5 +1,7 @@
 # Spotify ETL and Data Visualization Project Report
 
+Group: Olga Khodyreva, Aleksei Safjanov, Jevgeni Filatov
+
 The aim of this project was to build a complete ETL pipeline and create visualizations that tell a clear story with the data. The project focused on understanding the relationship between Spotify track popularity and music genres. The data came from the Spotify Tracks Dataset on Kaggle. The main objective was to explore how track popularity differs across genres and whether audio features such as danceability, energy, valence, and acousticness are connected to popularity. The research question was: How do genre and audio characteristics relate to Spotify track popularity?
 
 At the beginning of the project, an important step was selecting the dataset. Different options were considered, including Spotify datasets from Kaggle and public databases such as MusicBrainz. MusicBrainz appeared to be more reliable because it is an official public music database. However, it was also more difficult to use because it contains many connected tables and does not directly provide Spotify-style audio features such as popularity, danceability, energy, and valence. For this reason, the Kaggle Spotify Tracks Dataset was selected. It was easier to use for an ETL and visualization project and included useful variables for analysis. Since Kaggle datasets are user-contributed, the results of this project should be considered exploratory rather than official Spotify statistics.
